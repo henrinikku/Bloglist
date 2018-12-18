@@ -1,4 +1,5 @@
 const http = require('http');
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -22,6 +23,9 @@ app.use(middleware.getToken);
 app.use('/api/blogs', blogsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
+
+app.use(express.static('build'));
+app.get('*', (req, res) => res.sendFile(path.resolve('build', 'index.html')));
 
 const server = http.createServer(app);
 
