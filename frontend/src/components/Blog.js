@@ -45,7 +45,7 @@ const Blog = ({
       <Divider section />
       <div>
         <h3>Comments</h3>
-        <Form onSubmit={handleComment}>
+        <Form onSubmit={handleComment} autoComplete="off">
           <Form.Input name="comment" />
           <Button compact type="small">Add comment</Button>
         </Form>

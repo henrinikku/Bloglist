@@ -7,6 +7,7 @@ import { setFilter } from '../reducers/filterReducer';
 const Filter = ({ filter, setFilter }) => (
   <Form.Input
     name="comment"
+    autoComplete="off"
     placeholder="filter"
     onChange={e => setFilter(e.target.value)}
     value={filter}

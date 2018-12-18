@@ -21,7 +21,7 @@ const SignupForm = ({ signup }) => {
   return (
     <div>
       <h2>Sign up</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} autoComplete="off">
         <Form.Group widths="12">
           <Form.Input
             width="10"

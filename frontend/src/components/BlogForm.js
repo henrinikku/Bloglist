@@ -41,7 +41,7 @@ class BlogForm extends React.Component {
     return (
       <div>
         <h2>create new</h2>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} autoComplete="off">
           <Form.Input
             label="title"
             type="text"
