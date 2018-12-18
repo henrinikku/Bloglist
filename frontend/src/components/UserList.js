@@ -38,5 +38,7 @@ UserList.propTypes = {
 };
 
 export default connect(
-  ({ users }) => ({ users }),
+  ({ users }) => ({
+    users: users.sort((u1, u2) => u2.blogs.length - u1.blogs.length),
+  }),
 )(UserList);

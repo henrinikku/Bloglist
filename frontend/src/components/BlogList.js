@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
+import Filter from './Filter';
 
-const BlogList = ({ blogs }) => {
-  if (blogs.length === 0) {
+const BlogList = ({ blogs, filter }) => {
+  if (blogs.length === 0 && filter === '') {
     return (
       <div>
         <h2>blogs</h2>
@@ -17,6 +18,7 @@ const BlogList = ({ blogs }) => {
   return (
     <div>
       <h2>blogs</h2>
+      <Filter />
       <Table>
         <Table.Body>
           {blogs.map(blog => (
@@ -41,8 +43,13 @@ BlogList.propTypes = {
   })).isRequired,
 };
 
+const mapStateToProps = ({ blogs, filter }) => {
+  const blogsToDisplay = blogs
+    .filter(b => b.title.toLowerCase().includes(filter.toLowerCase()))
+    .sort((b1, b2) => b2.likes - b1.likes);
+  return { blogs: blogsToDisplay, filter };
+};
+
 export default connect(
-  ({ blogs }) => ({
-    blogs: blogs.sort((b1, b2) => b2.likes - b1.likes),
-  }),
+  mapStateToProps,
 )(BlogList);
