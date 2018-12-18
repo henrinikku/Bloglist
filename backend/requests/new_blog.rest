@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpMSIsImlkIjoiNWJmNmJmZDUzNDg3ZDEwZWEwM2RhZDk4IiwiaWF0IjoxNTQzMDEzMTM2fQ.Eyn6ywAU6xy1csLiv8V0WhhjKYHKtkHDbtsXRK71J74
+
+{
+  "title": "Kommentoi tähän",
+  "author": "Poistaja Ukkeli",
+  "url": "http://www.esimerkki.fi/345",
+  "likes": 4
+}
